@@ -25,10 +25,20 @@ export function ListaTarefas() {
     setNovaTarefa("");
   };
 
+
   const removeTarefa = (tarefa) => {
     const listaFiltrada = lista.filter((item) => item !== tarefa);
     setLista(listaFiltrada);
   };
+
+const teclaEnter = (event) => {
+  if (event.key === "Enter"){
+    adicionaTarefa()
+  }
+}
+
+
+
 
   return (
     <ListaTarefasContainer>
@@ -37,6 +47,7 @@ export function ListaTarefas() {
           placeholder="Digite aqui uma tarefa"
           value={novaTarefa}
           onChange={onChangeTarefa}
+          onKeyPress={teclaEnter}
         />
         <AddTaskButton onClick={adicionaTarefa}>Adicionar</AddTaskButton>
       </InputContainer>
@@ -56,5 +67,11 @@ export function ListaTarefas() {
       </ListaContainer>
       <LinhaHorizontal/>
     </ListaTarefasContainer>
+
+
+
+
+
+
   );
 }
